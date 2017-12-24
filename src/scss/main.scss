@@ -1,0 +1,76 @@
+// This SCSS lib requires modernizr.
+
+
+// Partials
+@import './mixins.scss';
+@import './variables.scss';
+
+// Globals
+
+@include layout-util((6, 12, 28, 36, 60));
+
+html {
+    background: $col-background;
+    font-family: 'Roboto', sans-serif, Verdana, Geneva, Tahoma;
+}
+
+
+body {
+    font-family: 'Ubuntu', sans-serif, Verdana, Geneva, Tahoma;
+    color: $col-default;
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+figure {
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.hidden {
+    display: none;
+}
+
+a {
+    color: unset;
+    text-decoration: unset;
+}
+
+a:hover {
+    opacity: .75;
+}
+
+a:active {
+    opacity: .5;
+}
+
+// Modules
+@import './util.scss';
+@import './grid.scss';
+@import './typography.scss';
+@import './nav.scss';
+@import './buttons.scss';
+@import './forms.scss';
+@import './alert.scss';
+@import './modals.scss';
+
+
+.img-responsive {
+    width: 100%;
+}
+
+.img-rounded {
+    border-radius: 20px;
+}
+
+.presized-image {
+    background-color: lightgray;
+}

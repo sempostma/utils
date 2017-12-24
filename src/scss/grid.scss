@@ -1,0 +1,55 @@
+
+.container {
+    max-width: 1024px;
+    margin: auto;
+}
+
+.col {
+    float: left;
+    position: relative;
+}
+$sizes: (1,2,3,4,5,6,7,8,9,10,11,12);
+
+@mixin col($mediaSize) {
+    @include mediaCols(xs);
+    @include colOffsets(xs);
+    @media screen and (min-width: 560px) {
+    @include colOffsets(xs);
+        @include mediaCols(sm);
+        @include colOffsets(xs);
+    }
+    @media screen and (max-width: 720px) {
+        @include mediaCols(md);
+        @include colOffsets(md);
+    }
+    @media screen and (min-width: 1080px) {
+        @include mediaCols(lg);
+        @include colOffsets(lg);
+    }
+}
+
+@mixin mediaCols($prefix) {
+    @for $i from 1 through length($sizes) {
+        $size: nth($sizes, $i);
+        .col-#{$prefix}-#{$size} {
+            width: $size / 12 * 100 - 0.0001%;
+        }
+    }
+}
+
+@mixin colOffsets($prefix) {
+    @for $i from 1 through length($sizes) {
+        $size: nth($sizes, $i);
+        .col-offset-#{$prefix}-#{$size} {
+            left: $size / 12 * 100 - 0.0001%;
+        }
+    }
+}
+
+@mixin cols($mediaSizes) {
+    @for $i from 1 through length($mediaSizes) {
+        @include col(nth($mediaSizes, $i));
+    }
+}
+
+@include cols((xs, sm, md, lg))
